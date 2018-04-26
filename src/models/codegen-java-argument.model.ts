@@ -1,6 +1,6 @@
 /**
  * @license
- * Copyright 2018 Red Hat
+ * Copyright 2017 JBoss Inc
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -15,11 +15,14 @@
  * limitations under the License.
  */
 
-export * from "./library";
 
-export * from "./models/codegen-info.model";
-export * from "./models/codegen-java-argument.model";
-export * from "./models/codegen-java-bean.model";
-export * from "./models/codegen-java-interface.model";
-export * from "./models/codegen-java-method.model";
-export * from "./models/codegen-java-return.model";
+export interface CodegenJavaArgument {
+
+    name: string;
+    in: string;
+    collection?: string;
+    type?: string;
+    format?: string;
+    required: boolean;
+
+}

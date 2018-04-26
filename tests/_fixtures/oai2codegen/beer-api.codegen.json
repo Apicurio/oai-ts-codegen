@@ -1,0 +1,331 @@
+{
+  "interfaces": [
+    {
+      "name": "Beers",
+      "package": "org.example.beer",
+      "path": "/beers",
+      "methods": [
+        {
+          "name": "getBeer",
+          "description": "Returns full information about a single beer.",
+          "path": "/{beerId}",
+          "method": "get",
+          "produces": [
+            "application/json"
+          ],
+          "consumes": [],
+          "arguments": [
+            {
+              "name": "beerId",
+              "in": "path",
+              "required": true,
+              "type": "integer",
+              "format": "int32"
+            }
+          ],
+          "return": {
+            "type": "org.example.beer.beans.Beer"
+          }
+        },
+        {
+          "name": "updateBeer",
+          "description": "Updates information about a single beer.",
+          "path": "/{beerId}",
+          "method": "put",
+          "produces": [],
+          "consumes": [
+            "application/json"
+          ],
+          "arguments": [
+            {
+              "name": "beerId",
+              "in": "path",
+              "required": true,
+              "type": "integer",
+              "format": "int32"
+            },
+            {
+              "name": "data",
+              "in": "body",
+              "type": "org.example.beer.beans.Beer",
+              "required": true
+            }
+          ]
+        },
+        {
+          "name": "deleteBeer",
+          "description": "Removes a single beer from the data set.",
+          "path": "/{beerId}",
+          "method": "delete",
+          "produces": [],
+          "consumes": [],
+          "arguments": [
+            {
+              "name": "beerId",
+              "in": "path",
+              "required": true,
+              "type": "integer",
+              "format": "int32"
+            }
+          ]
+        },
+        {
+          "name": "listAllBeers",
+          "description": "Returns all of the beers in the database.",
+          "path": null,
+          "method": "get",
+          "produces": [
+            "application/json"
+          ],
+          "consumes": [],
+          "arguments": [],
+          "return": {
+            "type": "org.example.beer.beans.Beer",
+            "collection": "list"
+          }
+        },
+        {
+          "name": "addBeer",
+          "description": "Adds a single beer to the dataset.",
+          "path": null,
+          "method": "post",
+          "produces": [],
+          "consumes": [
+            "application/json"
+          ],
+          "arguments": [
+            {
+              "name": "data",
+              "in": "body",
+              "type": "org.example.beer.beans.Beer",
+              "required": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Breweries",
+      "package": "org.example.beer",
+      "path": "/breweries",
+      "methods": [
+        {
+          "name": "listAllBreweries",
+          "description": "Returns a list of all the breweries.",
+          "path": null,
+          "method": "get",
+          "produces": [
+            "application/json"
+          ],
+          "consumes": [],
+          "arguments": [],
+          "return": {
+            "type": "org.example.beer.beans.Brewery",
+            "collection": "list"
+          }
+        },
+        {
+          "name": "addBrewery",
+          "description": "Adds a single brewery to the data set.",
+          "path": null,
+          "method": "post",
+          "produces": [],
+          "consumes": [
+            "application/json"
+          ],
+          "arguments": [
+            {
+              "name": "data",
+              "in": "body",
+              "type": "org.example.beer.beans.Brewery",
+              "required": true
+            }
+          ]
+        },
+        {
+          "name": "getBrewery",
+          "description": "Returns full information about a single brewery.",
+          "path": "/{breweryId}",
+          "method": "get",
+          "produces": [
+            "application/json"
+          ],
+          "consumes": [],
+          "arguments": [
+            {
+              "name": "breweryId",
+              "in": "path",
+              "required": true,
+              "type": "integer",
+              "format": "int32"
+            }
+          ],
+          "return": {
+            "type": "org.example.beer.beans.Brewery"
+          }
+        },
+        {
+          "name": "updateBrewery",
+          "description": "Updates information about a single brewery.",
+          "path": "/{breweryId}",
+          "method": "put",
+          "produces": [],
+          "consumes": [
+            "application/json"
+          ],
+          "arguments": [
+            {
+              "name": "breweryId",
+              "in": "path",
+              "required": true,
+              "type": "integer",
+              "format": "int32"
+            },
+            {
+              "name": "data",
+              "in": "body",
+              "type": "org.example.beer.beans.Brewery",
+              "required": true
+            }
+          ]
+        },
+        {
+          "name": "deleteBrewery",
+          "description": "Removes a single brewery from the data set.",
+          "path": "/{breweryId}",
+          "method": "delete",
+          "produces": [],
+          "consumes": [],
+          "arguments": [
+            {
+              "name": "breweryId",
+              "in": "path",
+              "required": true,
+              "type": "integer",
+              "format": "int32"
+            }
+          ]
+        },
+        {
+          "name": "listBreweryBeers",
+          "description": "Returns all of the beers made by the brewery.",
+          "path": "/{breweryId}/beers",
+          "method": "get",
+          "produces": [
+            "application/json"
+          ],
+          "consumes": [],
+          "arguments": [
+            {
+              "name": "breweryId",
+              "in": "path",
+              "required": true,
+              "type": "integer",
+              "format": "int32"
+            }
+          ],
+          "return": {
+            "type": "org.example.beer.beans.Beer",
+            "collection": "list"
+          }
+        },
+        {
+          "name": "addBeerToBrewery",
+          "description": "Adds a single beer to the data set for this brewery.",
+          "path": "/{breweryId}/beers",
+          "method": "post",
+          "produces": [],
+          "consumes": [
+            "application/json"
+          ],
+          "arguments": [
+            {
+              "name": "breweryId",
+              "in": "path",
+              "required": true,
+              "type": "integer",
+              "format": "int32"
+            },
+            {
+              "name": "data",
+              "in": "body",
+              "type": "org.example.beer.beans.Beer",
+              "required": true
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "beans": [
+    {
+      "name": "Beer",
+      "package": "org.example.beer.beans",
+      "$schema": {
+        "title": "Root Type for Beer",
+        "description": "The root of the Beer type's schema.",
+        "required": [
+          "abv",
+          "id",
+          "name",
+          "style",
+          "breweryId",
+          "ounces"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "format": "int32",
+            "type": "integer"
+          },
+          "abv": {
+            "format": "double",
+            "type": "number"
+          },
+          "ibu": {
+            "format": "double",
+            "type": "number"
+          },
+          "name": {
+            "type": "string"
+          },
+          "style": {
+            "type": "string"
+          },
+          "breweryId": {
+            "format": "int32",
+            "type": "integer"
+          },
+          "ounces": {
+            "format": "double",
+            "type": "number"
+          }
+        }
+      }
+    },
+    {
+      "name": "Brewery",
+      "package": "org.example.beer.beans",
+      "$schema": {
+        "title": "Root Type for Brewery",
+        "description": "The root of the Brewery type's schema.",
+        "type": "object",
+        "properties": {
+          "id": {
+            "format": "int32",
+            "type": "integer"
+          },
+          "name": {
+            "type": "string"
+          },
+          "city": {
+            "type": "string"
+          },
+          "state": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  ]
+}

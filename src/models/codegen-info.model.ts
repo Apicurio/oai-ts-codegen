@@ -1,6 +1,6 @@
 /**
  * @license
- * Copyright 2018 Red Hat
+ * Copyright 2017 JBoss Inc
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,12 +14,12 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+import {CodegenJavaInterface} from "./codegen-java-interface.model";
+import {CodegenJavaBean} from "./codegen-java-bean.model";
 
-export * from "./library";
+export interface CodegenInfo {
 
-export * from "./models/codegen-info.model";
-export * from "./models/codegen-java-argument.model";
-export * from "./models/codegen-java-bean.model";
-export * from "./models/codegen-java-interface.model";
-export * from "./models/codegen-java-method.model";
-export * from "./models/codegen-java-return.model";
+    interfaces: CodegenJavaInterface[];
+    beans: CodegenJavaBean[];
+
+}
