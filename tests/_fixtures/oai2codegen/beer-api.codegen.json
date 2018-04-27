@@ -1,4 +1,7 @@
 {
+  "name": "Beer API",
+  "description": "The official Beer API!  Search for both beers and breweries.",
+  "version": "1.0.0",
   "interfaces": [
     {
       "name": "Beers",

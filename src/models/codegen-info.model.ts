@@ -19,6 +19,9 @@ import {CodegenJavaBean} from "./codegen-java-bean.model";
 
 export interface CodegenInfo {
 
+    name: string;
+    description?: string;
+    version: string;
     interfaces: CodegenJavaInterface[];
     beans: CodegenJavaBean[];
 

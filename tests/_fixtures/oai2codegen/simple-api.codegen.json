@@ -1,0 +1,87 @@
+{
+  "name": "Simple OAI 3.0.0 API",
+  "description": "A simple API using OpenAPI 3.0.0.",
+  "version": "2.0.11",
+  "interfaces": [
+    {
+      "name": "Root",
+      "package": "io.openapi.simple",
+      "path": "/",
+      "methods": [
+        {
+          "name": "listAPIVersions",
+          "path": null,
+          "method": "get",
+          "produces": [
+            "application/json"
+          ],
+          "consumes": [],
+          "arguments": [],
+          "return": null
+        }
+      ]
+    },
+    {
+      "name": "V2",
+      "package": "io.openapi.simple",
+      "path": "/v2",
+      "methods": [
+        {
+          "name": "showAPIVersionDetails",
+          "path": null,
+          "method": "get",
+          "produces": [
+            "application/json",
+            "application/json"
+          ],
+          "consumes": [],
+          "arguments": [],
+          "return": null
+        },
+        {
+          "name": "updateAPIVersionDetails",
+          "path": null,
+          "method": "put",
+          "produces": [],
+          "consumes": [
+            "application/json"
+          ],
+          "arguments": [
+            {
+              "name": "data",
+              "in": "body",
+              "required": true,
+              "type": "io.openapi.simple.beans.User"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "beans": [
+    {
+      "name": "Address",
+      "package": "io.openapi.simple.beans",
+      "$schema": {
+        "properties": {
+          "name": {},
+          "street": {},
+          "city": {},
+          "state": {},
+          "zip": {}
+        }
+      }
+    },
+    {
+      "name": "User",
+      "package": "io.openapi.simple.beans",
+      "$schema": {
+        "properties": {
+          "address": {
+            "$ref": "#/components/schemas/Address"
+          }
+        }
+      }
+    }
+  ]
+}

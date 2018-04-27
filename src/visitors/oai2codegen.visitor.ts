@@ -17,7 +17,7 @@
 import {
     Oas20Document,
     Oas20Operation, Oas20Parameter, Oas20Response, Oas30Parameter, Oas30RequestBody, Oas30Response,
-    OasCombinedVisitorAdapter,
+    OasCombinedVisitorAdapter, OasInfo,
     OasLibraryUtils, OasNode,
     OasOperation,
     OasPathItem, OasResponse, OasSchema, OasVisitorUtil
@@ -50,6 +50,8 @@ export class OpenApi2CodegenVisitor extends OasCombinedVisitorAdapter {
     private packageName: string;
     private interfacesIndex: any = {};
     private codegenInfo: CodegenInfo = {
+        name: "Wildfly Swarm API",
+        version: "1.0.0",
         interfaces: [],
         beans: []
     };
@@ -87,6 +89,18 @@ export class OpenApi2CodegenVisitor extends OasCombinedVisitorAdapter {
     }
 
     /**
+     * Visits the info model to extract some meta data.
+     * @param {OasInfo} node
+     */
+    public visitInfo(node: OasInfo): void {
+        this.codegenInfo.name = node.title;
+        if (node.description) {
+            this.codegenInfo.description = node.description;
+        }
+        this.codegenInfo.version = node.version;
+    }
+
+    /**
      * Visits an operation to produce a CodegenJavaInterface.
      * @param {OasPathItem} node
      */
@@ -103,13 +117,13 @@ export class OpenApi2CodegenVisitor extends OasCombinedVisitorAdapter {
     public visitOperation(node: OasOperation): void {
         let method: CodegenJavaMethod = {
             name: this.methodName(node),
-            description: node.description,
             path: this.methodPath(node),
             method: node.method(),
             produces: [],
             consumes: [],
             arguments: []
         };
+        if (node.description) { method.description = node.description; }
 
         // Handle 2.0 "produces"
         if (node.ownerDocument().is2xDocument()) {
@@ -296,7 +310,10 @@ export class OpenApi2CodegenVisitor extends OasCombinedVisitorAdapter {
             return operation.operationId;
         }
         if (operation.summary !== null && operation.summary !== undefined && operation.summary.length > 0) {
-            return operation.summary.replace(/^a-zA-Z0-9-_/g, "");
+            let nameSegments: string [] = operation.summary.split(" ");
+            return this.decapitalize(nameSegments.map( segment => {
+                return this.capitalize(segment.replace(/\W/g, ''));
+            }).join(''));
         }
         return "generatedMethod" + this._methodCounter++;
     }
@@ -354,6 +371,24 @@ export class OpenApi2CodegenVisitor extends OasCombinedVisitorAdapter {
         let viz: PathItemDetectionVisitor = new PathItemDetectionVisitor();
         OasVisitorUtil.visitNode(node, viz);
         return viz.isPathItem;
+    }
+
+    /**
+     * Capitalizes a word.
+     * @param {string} word
+     * @return {string}
+     */
+    private capitalize(word: string) {
+        return word.charAt(0).toUpperCase() + word.slice(1);
+    }
+
+    /**
+     * De-capitalizes a word.
+     * @param {string} word
+     * @return {string}
+     */
+    private decapitalize(word: string) {
+        return word.charAt(0).toLowerCase() + word.slice(1);
     }
 
 }

@@ -41,4 +41,20 @@ describe("OpenApi2Codegen Visitor Test", () => {
         expect(actual).toEqual(expected);
     });
 
+    it("Simple API (3.0)", () => {
+        let beerApiJs: any = readJSON("tests/_fixtures/3.0/simple-api.json");
+        let library: OasLibraryUtils = new OasLibraryUtils();
+        let doc: OasDocument = library.createDocument(beerApiJs);
+
+        let cgLibrary: CodegenLibrary = new CodegenLibrary();
+        let info: CodegenInfo = cgLibrary.generateJaxRsInfo(doc, "io.openapi.simple");
+
+        let actual: any = info;
+        let expected: any = readJSON("tests/_fixtures/oai2codegen/simple-api.codegen.json");
+
+        //console.info(JSON.stringify(actual, null, 2));
+
+        expect(actual).toEqual(expected);
+    });
+
 });
