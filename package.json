@@ -1,6 +1,6 @@
 {
   "name": "oai-ts-codegen",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Provides some code generation features to the OAI suite of tools.",
   "license": "Apache-2.0",
   "repository": {
