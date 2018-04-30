@@ -127,16 +127,22 @@ export class OpenApi2CodegenVisitor extends OasCombinedVisitorAdapter {
 
         // Handle 2.0 "produces"
         if (node.ownerDocument().is2xDocument()) {
-            method.produces = (node as Oas20Operation).produces;
-            if (method.produces === null) {
-                method.produces = (node.parent() as Oas20Document).produces;
+            let produces: string[] = (node as Oas20Operation).produces;
+            if (produces === null || produces === undefined) {
+                produces = (node.ownerDocument() as Oas20Document).produces;
+            }
+            if (produces) {
+                method.produces = produces;
             }
         }
         // Handle 2.0 "consumes"
         if (node.ownerDocument().is2xDocument()) {
-            method.consumes = (node as Oas20Operation).consumes;
-            if (method.consumes === null) {
-                method.consumes = (node.parent() as Oas20Document).consumes;
+            let consumes: string[] = (node as Oas20Operation).consumes
+            if (consumes === null || consumes === undefined) {
+                consumes = (node.ownerDocument() as Oas20Document).consumes;
+            }
+            if (consumes) {
+                method.consumes = consumes;
             }
         }
 
@@ -167,10 +173,14 @@ export class OpenApi2CodegenVisitor extends OasCombinedVisitorAdapter {
         let cgArgument: CodegenJavaArgument = {
             name: node.name,
             in: node.in,
-            required: node.required
+            required: true
         };
         this._currentMethod.arguments.push(cgArgument);
         this._currentArgument = cgArgument;
+
+        if (node.required !== undefined && node.required !== null) {
+            cgArgument.required = node.required;
+        }
 
         if (node.ownerDocument().is2xDocument()) {
             this.visit20Parameter(node as Oas20Parameter);
@@ -363,6 +373,9 @@ export class OpenApi2CodegenVisitor extends OasCombinedVisitorAdapter {
     private typeFromSchemaRef(schemaRef: string): string {
         if (schemaRef.indexOf("#/components/schemas/") === 0) {
             return this.packageName + ".beans." + schemaRef.substring(21);
+        }
+        if (schemaRef.indexOf("#/definitions/") === 0) {
+            return this.packageName + ".beans." + schemaRef.substring(14);
         }
         return null;
     }

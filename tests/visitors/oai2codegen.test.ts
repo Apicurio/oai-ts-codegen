@@ -57,4 +57,20 @@ describe("OpenApi2Codegen Visitor Test", () => {
         expect(actual).toEqual(expected);
     });
 
+    it("Gateway API (2.0)", () => {
+        let beerApiJs: any = readJSON("tests/_fixtures/2.0/gateway-api.json");
+        let library: OasLibraryUtils = new OasLibraryUtils();
+        let doc: OasDocument = library.createDocument(beerApiJs);
+
+        let cgLibrary: CodegenLibrary = new CodegenLibrary();
+        let info: CodegenInfo = cgLibrary.generateJaxRsInfo(doc, "io.openapi.simple");
+
+        let actual: any = info;
+        let expected: any = readJSON("tests/_fixtures/oai2codegen/gateway-api.codegen.json");
+
+        //console.info(JSON.stringify(actual, null, 2));
+
+        expect(actual).toEqual(expected);
+    });
+
 });
