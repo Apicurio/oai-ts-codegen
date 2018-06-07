@@ -50,7 +50,7 @@ export class OpenApi2CodegenVisitor extends OasCombinedVisitorAdapter {
     private packageName: string;
     private interfacesIndex: any = {};
     private codegenInfo: CodegenInfo = {
-        name: "Wildfly Swarm API",
+        name: "Thorntail API",
         version: "1.0.0",
         interfaces: [],
         beans: []
