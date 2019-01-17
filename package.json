@@ -31,10 +31,10 @@
     "cpx": "1.5.0",
     "diff": "4.0.1",
     "mkdirp": "0.5.1",
-    "rimraf": "2.6.1",
+    "rimraf": "2.6.3",
     "jasmine-core": "3.3.0",
-    "karma": "1.7.1",
-    "karma-chrome-launcher": "2.1.1",
+    "karma": "2.0.5",
+    "karma-chrome-launcher": "2.2.0",
     "karma-cli": "2.0.0",
     "karma-jasmine": "2.0.1",
     "karma-phantomjs-launcher": "1.0.4",
@@ -42,7 +42,7 @@
     "karma-summary-reporter": "1.5.2",
     "karma-typescript": "3.0.13",
     "karma-typescript-es6-transform": "1.0.2",
-    "rollup": "0.41.6",
+    "rollup": "0.68.2",
     "rollup-plugin-commonjs": "8.4.1",
     "typescript": "2.9.2"
   }
