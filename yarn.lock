@@ -3086,10 +3086,10 @@ number-is-nan@^1.0.0:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/number-is-nan/-/number-is-nan-1.0.1.tgz#097b602b53422a522c1afb8790318336941a011d"
 
-oai-ts-core@0.2.35:
-  version "0.2.35"
-  resolved "https://registry.yarnpkg.com/oai-ts-core/-/oai-ts-core-0.2.35.tgz#d241e60061c4fe61104224ad9b11e5db28251f7e"
-  integrity sha512-4C3g0woJIZMve5lCaDllY04rJcfq7+dW4vwSMdU38feoOUD6MYdyUtxom5rDbOip6kiKNqUB+Ncf9Gt2Ft0chw==
+oai-ts-core@0.2.36:
+  version "0.2.36"
+  resolved "https://registry.yarnpkg.com/oai-ts-core/-/oai-ts-core-0.2.36.tgz#16904e4ecec91a931d3f3b9dcfe3b2e6f9cc8f40"
+  integrity sha512-QIEfhP8WUMNGgWlbO6qzQ1vO8ArMJ04wFQg7ra8I2osnf5VuCCOhrFvxL747j2tXD40cOf8qG6JEN5A+JeKPjg==
   dependencies:
     core-js "2.6.5"
 
