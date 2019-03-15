@@ -51,14 +51,14 @@ export class InterfacesVisitor extends OasCombinedVisitorAdapter {
         if (split && split.length > 1) {
             let firstSegment: string = split[1];
             if (firstSegment && firstSegment !== "" && firstSegment.indexOf("{") === -1) {
-                let iname: string = this.capitalize(firstSegment);
+                let iname: string = this.capitalize(firstSegment) + "Resource";
                 this.addPathTo(p, iname);
                 return;
             }
         }
 
         // Default.
-        this.addPathTo(p, "Root");
+        this.addPathTo(p, "RootResource");
     }
 
     /**

@@ -4,7 +4,7 @@
   "version": "1.0.0",
   "interfaces": [
     {
-      "name": "Beers",
+      "name": "BeersResource",
       "package": "org.example.beer",
       "path": "/beers",
       "methods": [
@@ -108,7 +108,7 @@
       ]
     },
     {
-      "name": "Breweries",
+      "name": "BreweriesResource",
       "package": "org.example.beer",
       "path": "/breweries",
       "methods": [

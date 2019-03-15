@@ -4,7 +4,7 @@
   "version": "2.0.11",
   "interfaces": [
     {
-      "name": "Root",
+      "name": "RootResource",
       "package": "io.openapi.simple",
       "path": "/",
       "methods": [
@@ -22,7 +22,7 @@
       ]
     },
     {
-      "name": "V2",
+      "name": "V2Resource",
       "package": "io.openapi.simple",
       "path": "/v2",
       "methods": [

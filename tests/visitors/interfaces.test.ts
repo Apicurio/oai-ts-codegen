@@ -34,11 +34,11 @@ describe("Interfaces Visitor Test", () => {
         let actual: InterfaceInfo[] = visitor.getInterfaces();
         let expected: InterfaceInfo[] = [
             {
-                name: "Beers",
+                name: "BeersResource",
                 paths: [ "/beers/{beerId}", "/beers" ]
             },
             {
-                name: "Breweries",
+                name: "BreweriesResource",
                 paths: [ "/breweries", "/breweries/{breweryId}", "/breweries/{breweryId}/beers" ]
             }
         ];
