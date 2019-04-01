@@ -195,6 +195,9 @@ export class OpenApi2CodegenVisitor extends OasCombinedVisitorAdapter {
             if (cgReturn.collection) { this._currentArgument.collection = cgReturn.collection; }
             if (cgReturn.type) { this._currentArgument.type = cgReturn.type; }
             if (cgReturn.format) { this._currentArgument.format = cgReturn.format; }
+        } else if (node.type) {
+            if (node.type) { this._currentArgument.type = node.type; }
+            if (node.format) { this._currentArgument.format = node.format; }
         }
     }
     private visit30Parameter(node: Oas30Parameter): void {

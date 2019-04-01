@@ -1,0 +1,32 @@
+{
+  "name": "Example Problem",
+  "version": "1.0.0",
+  "interfaces": [
+    {
+      "name": "EntityResource",
+      "package": "io.openapi.entity",
+      "path": "/entity",
+      "methods": [
+        {
+          "name": "generatedMethod1",
+          "path": "/{id}",
+          "method": "get",
+          "produces": [],
+          "consumes": [],
+          "arguments": [
+            {
+              "name": "id",
+              "in": "path",
+              "required": true,
+              "type": "integer"
+            }
+          ],
+          "return": {
+            "type": "string"
+          }
+        }
+      ]
+    }
+  ],
+  "beans": []
+}

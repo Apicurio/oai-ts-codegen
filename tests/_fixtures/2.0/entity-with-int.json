@@ -1,0 +1,29 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "Example Problem",
+    "version": "1.0.0"
+  },
+  "paths": {
+    "/entity": {},
+    "/entity/{id}": {
+      "get": {
+        "responses": {
+          "200": {
+            "schema": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "parameters": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "type": "integer"
+        }
+      ]
+    }
+  }
+}

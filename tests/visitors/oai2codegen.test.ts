@@ -73,4 +73,20 @@ describe("OpenApi2Codegen Visitor Test", () => {
         expect(actual).toEqual(expected);
     });
 
+    it("Entity With Integer (2.0)", () => {
+        let sourceJs: any = readJSON("tests/_fixtures/2.0/entity-with-int.json");
+        let library: OasLibraryUtils = new OasLibraryUtils();
+        let doc: OasDocument = library.createDocument(sourceJs);
+
+        let cgLibrary: CodegenLibrary = new CodegenLibrary();
+        let info: CodegenInfo = cgLibrary.generateJaxRsInfo(doc, "io.openapi.entity");
+
+        let actual: any = info;
+        let expected: any = readJSON("tests/_fixtures/oai2codegen/entity-with-int.codegen.json");
+
+        //console.info(JSON.stringify(actual, null, 2));
+
+        expect(actual).toEqual(expected);
+    });
+
 });
