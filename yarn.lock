@@ -2546,10 +2546,10 @@ karma-summary-reporter@1.6.0:
   dependencies:
     chalk "^1.1.3 || 2.x"
 
-karma-typescript-es6-transform@4.0.0:
-  version "4.0.0"
-  resolved "https://registry.yarnpkg.com/karma-typescript-es6-transform/-/karma-typescript-es6-transform-4.0.0.tgz#677e47712c0b6c0ff5d2512b3559fbeb700cfc2a"
-  integrity sha512-NSeMfC4w+gFb3Q1+o32HFWGb4pLSvs9dHNy83jHi2f+bMoeVRNrfKQkz5Pg4e/PRyXHKLOEX1FPnBGZK3vJing==
+karma-typescript-es6-transform@4.1.0:
+  version "4.1.0"
+  resolved "https://registry.yarnpkg.com/karma-typescript-es6-transform/-/karma-typescript-es6-transform-4.1.0.tgz#bbb4fe2419d4464a82e83e4bdba25a2fe5de162e"
+  integrity sha512-N5s8dn4OMt6ekN/4PPc3ZLlP6ka7BNkWKcXbKr2fyGXlLTOcCKN02VbcEmKr8z+l7Ye0HSmAL+Qk69f1bTIQ8g==
   dependencies:
     acorn "^6.0.5"
     acorn-walk "^6.1.1"
